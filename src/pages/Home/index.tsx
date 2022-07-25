@@ -1,4 +1,7 @@
 import {
+  AddDeleteCoffe,
+  CardCoffeContainer,
+  CoffesContainer,
   HomeContainer,
   IconsContainer,
   PresentationContainer,
@@ -9,8 +12,19 @@ import CartIcon from '../../assets/cartCircle.svg'
 import BoxIcon from '../../assets/box.svg'
 import TimerIcon from '../../assets/timer.svg'
 import CoffePurple from '../../assets/coffeIcon.svg'
+import CartPurtple from '../../assets/cartPurple.svg'
+import CoffeShop from '../../assets/coffeShop.svg'
+import { useState } from 'react'
 
 export function Home() {
+  const [cart, setCart] = useState(1)
+
+  function addCoffe() {
+    setCart(cart + 1)
+  }
+  function deleteCoffe() {
+    setCart(cart - 1)
+  }
   return (
     <HomeContainer>
       <PresentationContainer>
@@ -41,6 +55,69 @@ export function Home() {
         </TitleContainer>
         <img src={CoffeHome} alt="" />
       </PresentationContainer>
+      <h2>Nossos cafés</h2>
+      <CoffesContainer>
+        <CardCoffeContainer>
+          <img src={CoffeShop} alt="" />
+          <span>TRADICIONAL</span>
+          <h3>Expresso Tradicional</h3>
+          <p>O tradicional café feito com água quente e grãos moídos</p>
+          <div>
+            <span>R$ 9,90</span>
+            <AddDeleteCoffe>
+              <button onClick={deleteCoffe}>-</button>
+              <span>{cart}</span>
+              <button onClick={addCoffe}>+</button>
+            </AddDeleteCoffe>
+            <img src={CartPurtple} alt="" />
+          </div>
+        </CardCoffeContainer>
+        <CardCoffeContainer>
+          <img src={CoffeShop} alt="" />
+          <span>TRADICIONAL</span>
+          <h3>Expresso Tradicional</h3>
+          <p>O tradicional café feito com água quente e grãos moídos</p>
+          <div>
+            <span>R$ 9,90</span>
+            <AddDeleteCoffe>
+              <button>-</button>
+              <span>1</span>
+              <button>+</button>
+            </AddDeleteCoffe>
+            <img src={CartPurtple} alt="" />
+          </div>
+        </CardCoffeContainer>
+        <CardCoffeContainer>
+          <img src={CoffeShop} alt="" />
+          <span>TRADICIONAL</span>
+          <h3>Expresso Tradicional</h3>
+          <p>O tradicional café feito com água quente e grãos moídos</p>
+          <div>
+            <span>R$ 9,90</span>
+            <AddDeleteCoffe>
+              <button onClick={() => setCart(cart - 1)}>-</button>
+              <span>1</span>
+              <button onClick={() => setCart(cart + 1)}>+</button>
+            </AddDeleteCoffe>
+            <img src={CartPurtple} alt="" />
+          </div>
+        </CardCoffeContainer>
+        <CardCoffeContainer>
+          <img src={CoffeShop} alt="" />
+          <span>TRADICIONAL</span>
+          <h3>Expresso Tradicional</h3>
+          <p>O tradicional café feito com água quente e grãos moídos</p>
+          <div>
+            <span>R$ 9,90</span>
+            <AddDeleteCoffe>
+              <button>-</button>
+              <span>1</span>
+              <button>+</button>
+            </AddDeleteCoffe>
+            <img src={CartPurtple} alt="" />
+          </div>
+        </CardCoffeContainer>
+      </CoffesContainer>
     </HomeContainer>
   )
 }
